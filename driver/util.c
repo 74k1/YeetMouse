@@ -3,6 +3,7 @@
 #include "util.h"
 #include <linux/kernel.h>   //fixed-len datatypes
 #include <linux/string.h>   //memcpy
+#include <linux/slab.h>     //linux 6.6
 
 // ########## Kernel module parameters
 // Debug parameters
