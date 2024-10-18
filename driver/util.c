@@ -31,7 +31,7 @@ struct parser_context {
 
 int parse_report_desc(unsigned char *buffer, int buffer_len, struct report_positions *pos)
 {
-    int r_count = max(NUM_USAGES, 1), r_size = 0, r_sgn = 0, len = 0;
+    int r_count = max(NUM_USAGES, 1), r_max_count = r_count, r_size = 0, r_sgn = 0, len = 0;
     int* r_usage = NULL;
     unsigned char ctl, button = 0;
     unsigned char *data;
@@ -73,7 +73,7 @@ int parse_report_desc(unsigned char *buffer, int buffer_len, struct report_posit
             r_count = (int) data[0];
 
             // Check if the new count is greater
-            if(old_r_count < r_count) {
+            if(r_max_count < r_count) {
                 printk("LEETMOUSE: New r_count (%i) is bigger than the old r_count (%i)\n", r_count, old_r_count);
 
                 // Try to reallocate more space if needed
