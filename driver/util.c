@@ -91,6 +91,8 @@ int parse_report_desc(unsigned char *buffer, int buffer_len, struct report_posit
                 for(n = old_r_count; n < r_count; n++){
                     r_usage[n] = 0;
                 }
+
+                r_max_count = r_count;
             }
         }
 
